@@ -10,6 +10,7 @@ export class MapComponent implements OnInit {
   private width = 900;
   private height = 600;
   private svg = d3.select("div#map-svg").append('svg')
+    .attr('id', 'map')
     .attr("width", this.width)
     .attr("height", this.height);
   private projection = d3.geoAlbersUsa()
@@ -23,13 +24,17 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     d3.json(this.url)
       .then((uState) => {
-        console.log(uState.features)
+        console.log(uState.features[0].properties.name)
         this.svg.selectAll('path')
         .data(uState.features)
         .enter()
         .append('path')
         .attr('d', this.path)
         .attr('class', 'state')
+        let map = document.getElementById('map')
+        for(let i = 0; i < map.childElementCount; i++){
+          map.children[i].setAttribute('id',uState.features[i].properties.name)
+        }
       })
       .catch((error) => {
         throw error
