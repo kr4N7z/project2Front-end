@@ -7,6 +7,8 @@ import { MapComponent } from './map/map.component';
 import { MapsvgComponent } from './map/mapsvg/mapsvg.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './home/home.component';
     MapComponent,
     MapsvgComponent,
     NavigationComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
