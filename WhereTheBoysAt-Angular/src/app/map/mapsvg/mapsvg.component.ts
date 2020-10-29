@@ -41,7 +41,6 @@ export class MapsvgComponent implements OnInit {
     let path = d3.geoPath().projection(projection)
     let url:string = "https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json"
 
-    console.log(svg)
     d3.json(url)
       .then((uState) => {
         console.log(this.getStateFeatures(uState))
