@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3'
+import { FriendsService } from 'src/app/services/friends.service';
 
 @Component({
   selector: 'app-mapsvg',
@@ -19,7 +20,7 @@ export class MapsvgComponent implements OnInit {
   // private path = d3.geoPath().projection(this.projection)
   // private url:string = "https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json"
 
-  constructor() { }
+  constructor(private friendsService:FriendsService) { }
 
   getStateFeatures(uState){
     return uState.features

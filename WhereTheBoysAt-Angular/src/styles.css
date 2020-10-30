@@ -1,3 +1,9 @@
+html{
+    height: 100%
+}
+body{
+    height: 100%
+}
 .state{
     stroke-width: 1;
     stroke: #333;
@@ -6,4 +12,4 @@
 .state:hover {
     fill: red;
     cursor: pointer;
-  }
+}
