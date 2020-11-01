@@ -10,6 +10,10 @@ body{
     fill: #bbbbbb
 }
 .state:hover {
-    fill: red;
     cursor: pointer;
+}
+.legend{
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
