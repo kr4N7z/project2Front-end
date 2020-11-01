@@ -15,29 +15,28 @@ export class MapsvgComponent implements OnInit {
 
   constructor(private friendsService:FriendsService) { }
 
-  private friends:Friend[] = [new Friend(1,"standard","email@email.com","secret","Terrance","Lewis",100,100,"Indiana"),
-                              new Friend(2,"standard","amazon@email.com","secret","Jeff","Bezos",100,100,"California"),
-                              new Friend(3,"standard","email@email.com","secret","Steve","Lewis",100,100,"Indiana"),
-                              new Friend(4,"standard","email@email.com","secret","Ryan","Lewis",100,100,"Arkansas"),
-                              new Friend(5,"standard","email@email.com","secret","Cameron","Lewis",100,100,"Idaho"),
-                              new Friend(6,"standard","email@email.com","secret","Mason","Lewis",100,100,"Indiana"),
-                              new Friend(7,"standard","email@email.com","secret","Jon","Lewis",100,100,"California"),
-                              new Friend(8,"standard","email@email.com","secret","Bert","Lewis",100,100,"Washington"),
-                              new Friend(9,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(10,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(11,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(12,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
-                              new Friend(13,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
-                              new Friend(14,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
-                              new Friend(15,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
-                              new Friend(16,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(17,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(18,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-                              new Friend(19,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Maine"),
-                              new Friend(20,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-                              new Friend(21,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-                              new Friend(22,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-                              new Friend(23,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Colorado")]
+  private friends:Friend[] = [
+    new Friend(1,"standard","email@email.com","secret","Terrance","Lewis",100,100,"Indiana"),
+    new Friend(2,"standard","amazon@email.com","secret","Jeff","Bezos",100,100,"California"),
+    new Friend(3,"standard","email@email.com","secret","Steve","Lewis",100,100,"Indiana"),
+    new Friend(4,"standard","email@email.com","secret","Ryan","Lewis",100,100,"Arkansas"),
+    new Friend(5,"standard","email@email.com","secret","Cameron","Lewis",100,100,"Idaho"),
+    new Friend(6,"standard","email@email.com","secret","Mason","Lewis",100,100,"Indiana"),
+    new Friend(7,"standard","email@email.com","secret","Jon","Lewis",100,100,"California"),
+    new Friend(8,"standard","email@email.com","secret","Bert","Lewis",100,100,"Washington"),
+    new Friend(9,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    new Friend(10,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    new Friend(12,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
+    new Friend(13,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
+    new Friend(14,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
+    new Friend(15,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
+    new Friend(16,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    new Friend(19,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Maine"),
+    new Friend(20,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    new Friend(21,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    new Friend(22,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    new Friend(23,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Colorado"),
+  ]
   private states:Object = {}
 
   //Determines the State with Most and Least Friends and returns an array for scaling colors
@@ -55,12 +54,18 @@ export class MapsvgComponent implements OnInit {
     }
     return  d3.min(arr)
   }
+  private colorRange:any = ["#E3D2B5","#4B3E33"]
   legendArrayCreation(){
     let arr = []
-    for(let i = 0; i <= 5; i++){ 
-      arr.push(this.max()-((i/5)*9))
+    let numberOfBlocksInLegend = 0
+    if(this.max() > 5){
+      numberOfBlocksInLegend = 5;
+    }else{
+      numberOfBlocksInLegend = this.max();
     }
-    console.log(arr)
+    for(let i = 0; i <= numberOfBlocksInLegend; i++){ 
+      arr.push(this.max()-((i/numberOfBlocksInLegend)*this.max()))
+    }
     return arr
   }
 
@@ -107,7 +112,7 @@ export class MapsvgComponent implements OnInit {
         let data = this.getStateFeatures(uState)
         let colorScale = d3.scaleLinear()
           .domain([this.min(),this.max()])
-          .range(["#E3D2B5","#4B3E33"])
+          .range(this.colorRange)
         const legend = d3.select(".map-component").append('svg')
             .attr('class', 'legend')
             .attr('width', 100)
