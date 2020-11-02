@@ -36,7 +36,7 @@ export class FriendshipListComponent implements OnInit {
     header_row.appendChild(receiver_cell);
 
     var approved_cell = document.createElement("td");
-    var approved_cell_text = document.createTextNode("Approved");
+    var approved_cell_text = document.createTextNode("User ID");
     approved_cell.appendChild(approved_cell_text);
     header_row.appendChild(approved_cell);
 
@@ -50,7 +50,7 @@ export class FriendshipListComponent implements OnInit {
       row.appendChild(cell1);
 
       var cell2 = document.createElement("td");
-      var cellText2 = document.createTextNode(friend.$firstName + " " + friend.$lastName);
+      var cellText2 = document.createTextNode("" + friend.$userId);
       cell2.appendChild(cellText2);
       row.appendChild(cell2);
 
