@@ -54,7 +54,9 @@ export class MapsvgComponent implements OnInit {
     }
     return  d3.min(arr)
   }
+
   private colorRange:any = ["#E3D2B5","#4B3E33"]
+
   legendArrayCreation(){
     let arr = []
     let numberOfBlocksInLegend = 0
@@ -94,11 +96,11 @@ export class MapsvgComponent implements OnInit {
     }
   }
 
-  getAllFriends(url,svg,path){
+  getAllFriends(url,svg,path,tooltip){
     this.friendsService.getAllFriends().subscribe(
       data => {
         this.friends = data;
-        this.createMap(url,svg,path)
+        this.createMap(url,svg,path,tooltip)
       },
       () => {
         console.log("Something went wrong! Can't fetch friends!")
@@ -106,7 +108,7 @@ export class MapsvgComponent implements OnInit {
     )
   }
 
-  createMap(url, svg, path){
+  createMap(url, svg, path, tooltip){
     d3.json(url)
       .then((uState) => {
         let data = this.getStateFeatures(uState)
@@ -148,6 +150,24 @@ export class MapsvgComponent implements OnInit {
             let uRate = arr.length
             return uRate ? colorScale(uRate) : "#fff0cf";
           })
+          .on('mousemove', (d) => {
+            console.log(d);
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltip
+                .style("left", d.layerX + "px")
+                .style("top", d.layerY + "px")
+                .html(()=> {
+                  let friends = ""
+                  for(let userId in this.states[d.target.id]){
+                    console.log(userId)
+                    friends = friends + "<li>"+ this.states[d.target.id][userId] + "</li>"
+                  }
+                  console.log(friends)
+                  return"<b>"+d.target.id+"</b><ul>"+friends+"</ul>"
+                })
+        })
       })
       .catch((error) => {
         throw error
@@ -155,7 +175,9 @@ export class MapsvgComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    let tooltip = d3.select("#map-svg").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
     let width = 900;
     let height = 600;
     let svg = d3.select("div#map-svg").append('svg')
@@ -168,7 +190,7 @@ export class MapsvgComponent implements OnInit {
     let path = d3.geoPath().projection(projection)
     let url:string = "https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json"
     this.getFriendsByState()
-    // this.getAllFriends(url,svg,path)
-    this.createMap(url, svg, path)
+    // this.getAllFriends(url,svg,path,tooltip)
+    this.createMap(url, svg, path, tooltip)
   }
 }
