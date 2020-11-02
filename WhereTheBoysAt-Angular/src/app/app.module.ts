@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FriendshipsComponent } from './friendships/friendships.component';
+import { FriendshipListComponent } from './friendship-list/friendship-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavigationComponent,
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FriendshipsComponent,
+    FriendshipListComponent
   ],
   imports: [
     BrowserModule,
