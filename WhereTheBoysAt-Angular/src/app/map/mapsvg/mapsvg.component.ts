@@ -84,14 +84,14 @@ export class MapsvgComponent implements OnInit {
   //Fills State object with friends by state
   getFriendsByState(){
     for(let i = 0; i < this.friends.length; i++){
-      let userId = this.friends[i].$userId
-      let name  = this.friends[i].$firstName + " " + this.friends[i].$lastName
+      let userId = this.friends[i].userId
+      let name  = this.friends[i].firstName + " " + this.friends[i].lastName
       let userObj = {}
       userObj[userId] = name
-      if(this.states[this.friends[i].$lastState]){
-        this.states[this.friends[i].$lastState][userId] = name
+      if(this.states[this.friends[i].lastState]){
+        this.states[this.friends[i].lastState][userId] = name
       }else{
-        this.states[this.friends[i].$lastState] = userObj
+        this.states[this.friends[i].lastState] = userObj
       }
     }
   }
@@ -100,6 +100,8 @@ export class MapsvgComponent implements OnInit {
     this.friendsService.getAllFriends().subscribe(
       data => {
         this.friends = data;
+        this.getFriendsByState()
+        // console.log(this.states)
         this.createMap(url,svg,path,tooltip)
       },
       () => {
@@ -151,7 +153,6 @@ export class MapsvgComponent implements OnInit {
             return uRate ? colorScale(uRate) : "#fff0cf";
           })
           .on('mousemove', (d) => {
-            console.log(d);
             tooltip.transition()
                 .duration(200)
                 .style("opacity", .9);
@@ -161,10 +162,8 @@ export class MapsvgComponent implements OnInit {
                 .html(()=> {
                   let friends = ""
                   for(let userId in this.states[d.target.id]){
-                    console.log(userId)
                     friends = friends + "<li>"+ this.states[d.target.id][userId] + "</li>"
                   }
-                  console.log(friends)
                   return"<b>"+d.target.id+"</b><ul>"+friends+"</ul>"
                 })
         })
@@ -189,8 +188,8 @@ export class MapsvgComponent implements OnInit {
       .scale(1000)
     let path = d3.geoPath().projection(projection)
     let url:string = "https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json"
-    this.getFriendsByState()
     // this.getAllFriends(url,svg,path,tooltip)
+    this.getFriendsByState()
     this.createMap(url, svg, path, tooltip)
   }
 }
