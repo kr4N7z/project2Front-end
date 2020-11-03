@@ -13,6 +13,8 @@ export class FriendRequestsComponent implements OnInit {
 
   private friends:Friend[] = [];
 
+  public toApprove;
+
   getFriendRequests(){
     this.friendshipsService.viewAllMyRequests().subscribe(
       data => {
@@ -56,6 +58,12 @@ export class FriendRequestsComponent implements OnInit {
 
       tbl.appendChild(row);
     }
+  }
+
+  //make this reload the page
+  approveFriend() {
+    this.friendshipsService.updateFriend(this.toApprove, true);
+    this.friendshipsService.insertFriend(this.toApprove, true);
   }
 
   ngOnInit(): void {

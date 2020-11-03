@@ -1,12 +1,14 @@
 <div class="container">
 	<div id="table_div"></div>
 	<div class="container" id="approval_panel"> 
-		<!-- this is going to be different because we are using angular not standard html and JS-->
-		<form id="admin_form" method="post" action="">
-			<label for="amount">Enter the user ID to approve    </label>
-			<input type="number" name="id" required>
-			<br>
-			<input type="submit" value="Submit">
-		</form>
+		<div class="form-group">
+			<label>Enter the user ID to approve     </label>
+			<input type="number" name="id" required class="form-control custom" [(ngModel)]="toApprove">
+		</div>
+		<a (click)="approveFriend()">
+			<div class="btn btn-primary btn-block">
+			Approve
+			</div>
+		</a>
 	</div>
 </div>

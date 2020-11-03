@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FriendsService } from 'src/app/services/friends.service';
 import { Friend } from 'src/app/models/friend';
+import { FriendshipsService } from '../services/friendships.service';
 
 @Component({
   selector: 'app-friendship-list',
@@ -10,9 +11,11 @@ import { Friend } from 'src/app/models/friend';
 
 export class FriendshipListComponent implements OnInit {
 
-  constructor(private friendsService:FriendsService) { }
+  constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService) { }
 
   private friends:Friend[] = [];
+
+  toDelete;
 
   getAllFriends(){
     this.friendsService.getAllFriends().subscribe(
@@ -56,6 +59,11 @@ export class FriendshipListComponent implements OnInit {
 
       tbl.appendChild(row);
     }
+  }
+
+  //make this reload the page
+  deleteFriend() {
+    this.friendshipsService.removeFriendship(this.toDelete);
   }
 
   ngOnInit(): void {
