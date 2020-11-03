@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FriendshipsComponent } from './friendships/friendships.component';
 import { FriendshipListComponent } from './friendship-list/friendship-list.component';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { FriendRequestsComponent } from './friend-requests/friend-requests.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

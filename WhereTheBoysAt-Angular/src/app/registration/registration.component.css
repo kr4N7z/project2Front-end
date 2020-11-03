@@ -1,0 +1,9 @@
+
+.reg-container{
+
+    display: grid;
+    width: 500px;
+}
+.reg-content{
+    border:4px solid black;
+}

@@ -17,3 +17,22 @@ body{
     right: 20px;
     top: 10px;
 }
+div.tooltip {
+    position: absolute;
+    width: fit-content;
+    min-height: 28px;
+    padding: 8px 12px;
+    font: 12px sans-serif;
+    background: lightgray;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+div.tooltip ul{
+    list-style: none;
+    padding: 5px 0px 0px 10px;
+    margin: 0px;
+}
+div.tooltip ul li{
+    padding: 2px 0px;
+}
