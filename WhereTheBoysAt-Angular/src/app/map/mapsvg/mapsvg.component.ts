@@ -16,26 +16,26 @@ export class MapsvgComponent implements OnInit {
   constructor(private friendsService:FriendsService) { }
 
   private friends:Friend[] = [
-    new Friend(1,"standard","email@email.com","secret","Terrance","Lewis",100,100,"Indiana"),
-    new Friend(2,"standard","amazon@email.com","secret","Jeff","Bezos",100,100,"California"),
-    new Friend(3,"standard","email@email.com","secret","Steve","Lewis",100,100,"Indiana"),
-    new Friend(4,"standard","email@email.com","secret","Ryan","Lewis",100,100,"Arkansas"),
-    new Friend(5,"standard","email@email.com","secret","Cameron","Lewis",100,100,"Idaho"),
-    new Friend(6,"standard","email@email.com","secret","Mason","Lewis",100,100,"Indiana"),
-    new Friend(7,"standard","email@email.com","secret","Jon","Lewis",100,100,"California"),
-    new Friend(8,"standard","email@email.com","secret","Bert","Lewis",100,100,"Washington"),
-    new Friend(9,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-    new Friend(10,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-    new Friend(12,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
-    new Friend(13,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
-    new Friend(14,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
-    new Friend(15,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
-    new Friend(16,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
-    new Friend(19,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Maine"),
-    new Friend(20,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-    new Friend(21,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-    new Friend(22,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
-    new Friend(23,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Colorado"),
+    // new Friend(1,"standard","email@email.com","secret","Terrance","Lewis",100,100,"Indiana"),
+    // new Friend(2,"standard","amazon@email.com","secret","Jeff","Bezos",100,100,"California"),
+    // new Friend(3,"standard","email@email.com","secret","Steve","Lewis",100,100,"Indiana"),
+    // new Friend(4,"standard","email@email.com","secret","Ryan","Lewis",100,100,"Arkansas"),
+    // new Friend(5,"standard","email@email.com","secret","Cameron","Lewis",100,100,"Idaho"),
+    // new Friend(6,"standard","email@email.com","secret","Mason","Lewis",100,100,"Indiana"),
+    // new Friend(7,"standard","email@email.com","secret","Jon","Lewis",100,100,"California"),
+    // new Friend(8,"standard","email@email.com","secret","Bert","Lewis",100,100,"Washington"),
+    // new Friend(9,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    // new Friend(10,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    // new Friend(12,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
+    // new Friend(13,"standard","email@email.com","secret","Ernie","Lewis",100,100,"California"),
+    // new Friend(14,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
+    // new Friend(15,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Arkansas"),
+    // new Friend(16,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Indiana"),
+    // new Friend(19,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Maine"),
+    // new Friend(20,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    // new Friend(21,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    // new Friend(22,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Florida"),
+    // new Friend(23,"standard","email@email.com","secret","Ernie","Lewis",100,100,"Colorado"),
   ]
   private states:Object = {}
 
@@ -188,8 +188,8 @@ export class MapsvgComponent implements OnInit {
       .scale(1000)
     let path = d3.geoPath().projection(projection)
     let url:string = "https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json"
-    // this.getAllFriends(url,svg,path,tooltip)
-    this.getFriendsByState()
-    this.createMap(url, svg, path, tooltip)
+    this.getAllFriends(url,svg,path,tooltip)
+    // this.getFriendsByState()
+    // this.createMap(url, svg, path, tooltip)
   }
 }
