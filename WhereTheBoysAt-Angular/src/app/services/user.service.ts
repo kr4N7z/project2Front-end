@@ -10,7 +10,8 @@ export class UserService {
 
   constructor(private httpClient:HttpClient) { }
 
+  //need to write a backend method/endpoint for this to hit
   getUserByEmail(email) {
-    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/", email) as Observable<Friend>;
+    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/", email) as Observable<Friend>;
   }
 }
