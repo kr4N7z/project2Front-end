@@ -15,7 +15,7 @@ export class FriendsService {
     let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
 
     //return this.httpClient.get("http://localhost:8088/WhereTheBoysAt/user/myfriends",{headers:headers, withCredentials:true}) as Observable<Friend[]>
-    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/myfriends",{headers:headers, withCredentials:true}) as Observable<Friend[]>;
+    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/myfriends",{withCredentials:true}) as Observable<Friend[]>;
  }
 
 }
