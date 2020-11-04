@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
         this.parseData(data);
       },
       ()=>{
-        document.getElementById("error").innerHTML = "Email or Password is invalid";
         console.log("something went wrong");
       }
     )
