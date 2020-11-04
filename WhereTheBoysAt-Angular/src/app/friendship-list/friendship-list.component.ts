@@ -48,12 +48,12 @@ export class FriendshipListComponent implements OnInit {
     for(let friend of this.friends) {
       var row = document.createElement("tr");
       var cell1 = document.createElement("td");
-      var cellText1 = document.createTextNode(friend.$firstName + " " + friend.$lastName);
+      var cellText1 = document.createTextNode(friend.firstName + " " + friend.lastName);
       cell1.appendChild(cellText1);
       row.appendChild(cell1);
 
       var cell2 = document.createElement("td");
-      var cellText2 = document.createTextNode("" + friend.$userId);
+      var cellText2 = document.createTextNode("" + friend.userId);
       cell2.appendChild(cellText2);
       row.appendChild(cell2);
 

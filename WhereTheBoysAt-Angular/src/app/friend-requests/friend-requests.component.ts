@@ -46,13 +46,13 @@ export class FriendRequestsComponent implements OnInit {
     for(let friend of this.friends) {
       var row = document.createElement("tr");
       var cell1 = document.createElement("td");
-      var cellText1 = document.createTextNode(friend.$firstName + " " + friend.$lastName);
+      var cellText1 = document.createTextNode(friend.firstName + " " + friend.lastName);
       cell1.appendChild(cellText1);
       row.appendChild(cell1);
 
       var row = document.createElement("tr");
       var cell1 = document.createElement("td");
-      var cellText1 = document.createTextNode("" + friend.$userId);
+      var cellText1 = document.createTextNode("" + friend.userId);
       cell1.appendChild(cellText1);
       row.appendChild(cell1);
 
