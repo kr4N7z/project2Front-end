@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     //console.log(this.credentials);
     this.loginService.login(this.credentials).subscribe(
       (data)=>{
-        this.parseData(data);
+        this.parseData(data)
       },
       ()=>{
         document.getElementById("error").innerHTML = "Email or Password is invalid";
