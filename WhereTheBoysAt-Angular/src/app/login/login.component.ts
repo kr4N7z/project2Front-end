@@ -41,7 +41,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  testRouterLinkFunction(){
-    
-  }
+  // testSession(){
+  //   this.loginService.test(this.loginService).subscribe(
+  //     (data)=>{
+  //       this.parseData(data);
+  //     },
+  //     ()=>{
+  //     }
+  //   )
+  // }
 }
