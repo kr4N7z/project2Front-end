@@ -9,13 +9,13 @@ import { Message } from '../models/message'
 export class ChatService {
 
   constructor(private httpClient:HttpClient) {}
-    chat(loginCredentials):Observable<Object>{
+    chat(loginCredentials):Observable<Message[]>{
 
       let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
       //expecting login credentials to have email and password properties set.
-      let body = JSON.stringify(loginCredentials);
-      return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/messages/getMyMessages", body,{headers:headers, withCredentials:true})  as Observable<Message>;
-      //return this.httpClient.post<Friend>("http://localhost:8088/WhereTheBoysAt/messages/getMyMessages", body,{headers:headers, withCredentials:true})  as Observable<Message>;
+      //let body = JSON.stringify(loginCredentials);
+      return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/messages/getMyMessages", {headers:headers, withCredentials:true})  as Observable<Message[]>;
+      //return this.httpClient.post<Friend>("http://localhost:8088/WhereTheBoysAt/messages/getMyMessages",{headers:headers, withCredentials:true})  as Observable<Message[]>;
    }
    
 }
