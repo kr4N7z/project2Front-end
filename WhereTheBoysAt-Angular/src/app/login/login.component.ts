@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   }
   parseData(data){
     console.log(data);
-    // if(data.userID){
-    //   this.route.navigate(['/home']);
-    // }
+    if(data.userID){
+      this.route.navigate(['/home']);
+    }
   }
 
   postLoginCredentials(){

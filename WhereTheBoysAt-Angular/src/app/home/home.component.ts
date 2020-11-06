@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
     //console.log("logout is firing");
     this.logoutService.logout().subscribe(
       (data)=>{
-       this.parseData(data)
+       //this.parseData(data)
+       this.route.navigate(["/"]);
       }
     );
   }
