@@ -4,6 +4,8 @@ import { FriendsService } from 'src/app/services/friends.service';
 import { Observable } from 'rxjs';
 import { Friend } from 'src/app/models/friend';
 import { color } from 'd3';
+import { AppComponent } from 'src/app/app.component'
+
 
 
 @Component({
@@ -13,7 +15,7 @@ import { color } from 'd3';
 })
 export class MapsvgComponent implements OnInit {
 
-  constructor(private friendsService:FriendsService) { }
+  constructor(private friendsService:FriendsService, private appComponent:AppComponent) { }
 
   private friends:Friend[] = [
     // new Friend(1,"standard","email@email.com","secret","Terrance","Lewis",100,100,"Indiana"),
@@ -97,11 +99,11 @@ export class MapsvgComponent implements OnInit {
   }
 
   getAllFriends(url,svg,path,tooltip){
-    this.friendsService.getAllFriends().subscribe(
+    this.friendsService.getAllFriends(this.appComponent.userId).subscribe(
       data => {
         this.friends = data;
         this.getFriendsByState()
-        // console.log(this.states)
+        console.log(this.states)
         this.createMap(url,svg,path,tooltip)
       },
       () => {
