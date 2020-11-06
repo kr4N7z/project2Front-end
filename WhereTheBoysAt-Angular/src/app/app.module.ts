@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { MessagesComponent } from './messages/messages.component';
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    MessagesComponent
+    MessagesComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

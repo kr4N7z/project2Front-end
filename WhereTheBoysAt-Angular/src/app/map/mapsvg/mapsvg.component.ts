@@ -99,7 +99,9 @@ export class MapsvgComponent implements OnInit {
   getAllFriends(url,svg,path,tooltip){
     this.friendsService.getAllFriends().subscribe(
       data => {
+        console.log(data);
         this.friends = data;
+        
         this.getFriendsByState()
         // console.log(this.states)
         this.createMap(url,svg,path,tooltip)
