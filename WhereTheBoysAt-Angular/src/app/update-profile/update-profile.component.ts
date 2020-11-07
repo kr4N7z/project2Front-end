@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component'
-import { UpdateProfileService } from '../services/update-profile.service';
+import { UpdateService } from '../services/update.service';
 
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
   styleUrls: ['./update-profile.component.css'],
-  providers: [UpdateProfileService]
+  providers: [UpdateService]
 })
 export class UpdateProfileComponent implements OnInit {
 
-  constructor(private appComponent:AppComponent, private updateProfileService:UpdateProfileService) { }
+  constructor(private appComponent:AppComponent, private updateProfileService:UpdateService) { }
 
   userId = this.appComponent.userId
   email = this.appComponent.userEmail
   firstName = this.appComponent.userFirstName
   lastName = this.appComponent.userLastName
 
-  service:UpdateProfileService
+  service:UpdateService
 
   edit(){
     let email = document.getElementById("email")
