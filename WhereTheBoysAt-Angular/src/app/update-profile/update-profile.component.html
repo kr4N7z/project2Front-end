@@ -1,1 +1,15 @@
-<p>update-profile works!</p>
+<div class="row home-page">
+    <div class="col-4 nav-component d-flex align-items-end flex-column">
+        <app-navigation></app-navigation>
+       <logout id="logout" class="mt-auto p-2 align-self-end"></logout>
+    </div>
+    <div class="col-8 update-profile-component">
+        <h2>Email</h2>
+        <p id="email">{{email}}</p>
+        <h2>First Name</h2>
+        <p id="first-name">{{firstName}}</p>
+        <h2>Last Name</h2>
+        <p id="last-name">{{lastName}}</p>
+        <button id="edit-button" type="button" class="btn btn-secondary" (click) = "edit()">Edit Info</button>
+    </div>
+</div> 

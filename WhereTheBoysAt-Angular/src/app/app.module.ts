@@ -13,6 +13,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UpdateProfileService } from './services/update-profile.service';
 import { FriendshipsComponent } from './friendships/friendships.component';
 import { FriendshipListComponent } from './friendship-list/friendship-list.component';
 import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
@@ -30,6 +32,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     RegistrationComponent,
     MessagesComponent,
     LogoutComponent,
+    UpdateProfileComponent,
     FriendshipsComponent,
     FriendshipListComponent,
     FriendRequestsComponent,
@@ -41,7 +44,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UpdateProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

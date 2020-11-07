@@ -9,4 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angularMapTest';
   userId:number;
+  userEmail:string;
+  userFirstName:string;
+  userLastName:string;
 }
