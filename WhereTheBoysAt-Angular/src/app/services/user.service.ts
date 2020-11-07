@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Friend } from '../models/friend'
 
@@ -12,6 +12,10 @@ export class UserService {
 
   //need to write a backend method/endpoint for this to hit
   getUserByEmail(email) {
-    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/", email) as Observable<Friend>;
+    let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
+    let params = new HttpParams();
+    params = params.append('email', email);
+
+    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/userByEmail", {headers:headers,withCredentials:true,params:params}) as Observable<Friend>;
   }
 }
