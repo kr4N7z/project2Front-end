@@ -34,6 +34,8 @@ export class UpdateProfileComponent implements OnInit {
     let lastNameInput = document.createElement("input")
     let submitButton = document.createElement("button")
 
+    emailInput.setAttribute('type','email')
+
     emailInput.value = emailValue
     firstNameInput.value = firstNameValue
     lastNameInput.value = lastNameValue
@@ -63,7 +65,11 @@ export class UpdateProfileComponent implements OnInit {
     let firstNameValue = firstName.value
     let lastNameValue = lastName.value
 
-    this.updateProfileService.updateUser(this.appComponent.userId,emailValue,firstNameValue,lastNameValue).subscribe()
+    if(firstNameValue.length > 0 && lastNameValue > 0){
+      this.updateProfileService.updateUser(this.appComponent.userId,emailValue,firstNameValue,lastNameValue).subscribe()
+    } else{
+      window.alert("First name and Last name cannot be empty!")
+    }
    
     this.appComponent.userEmail = emailValue;
     this.appComponent.userFirstName = firstNameValue;

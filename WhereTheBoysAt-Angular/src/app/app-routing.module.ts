@@ -9,11 +9,11 @@ import { FriendshipsComponent } from './friendships/friendships.component'
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
-  { path: 'home', component: HomeComponent },
+  {path: 'home', component: HomeComponent },
   {path:'register', component:RegistrationComponent},
   {path: 'messages', component:MessagesComponent},
-  {path: 'updateprofile', component:UpdateProfileComponent},
-  {path: 'friendships', component:FriendshipsComponent}
+  {path: 'friendships', component:FriendshipsComponent},
+  {path: 'updateprofile', component:UpdateProfileComponent}
 ];
 
 @NgModule({
