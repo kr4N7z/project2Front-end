@@ -15,7 +15,8 @@
 								<div class="form-group">
 								<label>Password</label>
 									<input type="password" class="form-control custom" placeholder="Password" [(ngModel)]="credentials.password">
-                                </div>
+								</div>
+								<div id="error" class="error"></div>
                                 <a (click)="postLoginCredentials()" >
                                     <div class="btn btn-primary btn-block">
                                         Login
