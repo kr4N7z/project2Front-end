@@ -1,6 +1,6 @@
 .home-page{
     height: 100%;
-    width:100%;
+    width: 100%;
 }
 .messages-component{
     text-align: center;
@@ -21,3 +21,15 @@
     padding: 15px;
     border-top: 2px solid;
 }
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+    display: "";
+}
+.card-header-none {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+    display: "none";
+}
+
+
