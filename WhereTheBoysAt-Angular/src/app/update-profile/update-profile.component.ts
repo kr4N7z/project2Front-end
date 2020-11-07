@@ -65,6 +65,9 @@ export class UpdateProfileComponent implements OnInit {
 
     this.updateProfileService.updateUser(this.appComponent.userId,emailValue,firstNameValue,lastNameValue).subscribe()
    
+    this.appComponent.userEmail = emailValue;
+    this.appComponent.userFirstName = firstNameValue;
+    this.appComponent.userLastName = lastNameValue;
 
     let emailRevised = document.createElement("p")
     let firstNameRevised = document.createElement("p")
