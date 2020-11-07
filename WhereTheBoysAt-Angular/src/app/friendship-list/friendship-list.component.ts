@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FriendsService } from 'src/app/services/friends.service';
 import { Friend } from 'src/app/models/friend';
 import { FriendshipsService } from '../services/friendships.service';
+import { AppComponent } from 'src/app/app.component'
 
 @Component({
   selector: 'app-friendship-list',
@@ -11,14 +12,14 @@ import { FriendshipsService } from '../services/friendships.service';
 
 export class FriendshipListComponent implements OnInit {
 
-  constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService) { }
+  constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService, private appComponent:AppComponent) { }
 
   private friends:Friend[] = [];
 
   toDelete;
 
   getAllFriends(){
-    this.friendsService.getAllFriends().subscribe(
+    this.friendsService.getAllFriends(this.appComponent.userId).subscribe(
       data => {
         this.friends = data;
       },
@@ -63,7 +64,7 @@ export class FriendshipListComponent implements OnInit {
 
   //make this reload the page
   deleteFriend() {
-    this.friendshipsService.removeFriendship(this.toDelete);
+    this.friendshipsService.removeFriendship(this.toDelete, this.appComponent.userId);
   }
 
   ngOnInit(): void {

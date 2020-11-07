@@ -10,27 +10,27 @@
 								<div class="form-group myr-top">
 								    <label>Email</label>
 
-									<input type="text" class="form-control custom" placeholder="Email">
+									<input type="email" class="form-control custom" placeholder="Email" [(ngModel)]="registration.email">
 
                                 </div>
                                 <div class="form-group myr-top">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control custom" placeholder="First ">
+                                    <input type="text" class="form-control custom" placeholder="First" [(ngModel)]="registration.firstName">
                                 </div>
 
                                 <div class="form-group myr-top">
                                     <label>Last Name</label>
-                                        <input type="text" class="form-control custom" placeholder="Last">
+                                        <input type="text" class="form-control custom" placeholder="Last" [(ngModel)]="registration.lastName">
                                 </div>
 
 								<div class="form-group myr-top">
 								<label>Password</label>
-									<input type="passowrd" class="form-control custom" placeholder="Password">
+									<input type="password" class="form-control custom" placeholder="Password" [(ngModel)]="registration.password">
                                 </div>
                                 <label>Confirm Password</label>
-                                    <input type="passowrd" class="form-control custom" placeholder="Confirm Password">
+                                    <input type="password" class="form-control custom" placeholder="Confirm Password" [(ngModel)]="registration.cpassword">
                                 </div>
-                                <a href= "create" class="d-flex my-2" >
+                                <a (click)= "register()" class="d-flex my-2" >
                                     <div class="btn btn-primary btn-block">
                                         Create Account
                                     </div>

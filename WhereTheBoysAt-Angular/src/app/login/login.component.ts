@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {LoginService} from 'src/app/services/login.service';
-
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import {LoginService} from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService:LoginService, private route:Router) { }
+  constructor(private loginService:LoginService, private appComponent:AppComponent, private route:Router) { }
 
   ngOnInit(): void {
     
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     password:""
   }
   parseData(data){
-    console.log(data);
+    this.appComponent.userId = data.userID;
     if(data.userID){
       this.route.navigate(['/home']);
     }
@@ -34,14 +34,19 @@ export class LoginComponent implements OnInit {
         this.parseData(data)
       },
       ()=>{
-        document.getElementById("error").innerHTML = "Email or Password is invalid";
         console.log("something went wrong");
       }
     )
 
   }
 
-  testRouterLinkFunction(){
-    
-  }
+  // testSession(){
+  //   this.loginService.test(this.loginService).subscribe(
+  //     (data)=>{
+  //       this.parseData(data);
+  //     },
+  //     ()=>{
+  //     }
+  //   )
+  // }
 }
