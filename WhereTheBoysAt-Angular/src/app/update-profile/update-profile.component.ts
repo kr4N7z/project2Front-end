@@ -65,7 +65,7 @@ export class UpdateProfileComponent implements OnInit {
     let firstNameValue = firstName.value
     let lastNameValue = lastName.value
 
-    if(firstNameValue.length > 0 && lastNameValue > 0){
+    if(firstNameValue.length > 0 && lastNameValue.length > 0){
       this.updateProfileService.updateUser(this.appComponent.userId,emailValue,firstNameValue,lastNameValue).subscribe()
     } else{
       window.alert("First name and Last name cannot be empty!")

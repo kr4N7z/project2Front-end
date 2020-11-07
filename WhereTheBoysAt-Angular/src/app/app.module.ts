@@ -15,9 +15,6 @@ import { MessagesComponent } from './messages/messages.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { UpdateProfileService } from './services/update-profile.service';
-import { FriendshipsComponent } from './friendships/friendships.component';
-import { FriendshipListComponent } from './friendship-list/friendship-list.component';
-import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 
 
 @NgModule({
@@ -32,9 +29,6 @@ import { FriendRequestsComponent } from './friend-requests/friend-requests.compo
     MessagesComponent,
     LogoutComponent,
     UpdateProfileComponent,
-    FriendshipsComponent,
-    FriendshipListComponent,
-    FriendRequestsComponent
   ],
   imports: [
     BrowserModule,
