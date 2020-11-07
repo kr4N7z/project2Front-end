@@ -3,7 +3,7 @@ import { FriendsService } from 'src/app/services/friends.service';
 import { Friend } from 'src/app/models/friend';
 import { UserService } from '../services/user.service';
 import { FriendshipsService } from '../services/friendships.service';
-import { AppComponent } from 'src/app/app.component';
+import { AppComponent } from 'src/app/app.component'
 
 @Component({
   selector: 'app-friendships',
@@ -15,7 +15,7 @@ export class FriendshipsComponent implements OnInit {
   constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService, private userService:UserService, private appComponent:AppComponent) { }
 
   emailToAdd;
-  private friend:Friend[];
+  private friend:Friend;
 
   addFriend() {
     this.userService.getUserByEmail(this.emailToAdd).subscribe(
