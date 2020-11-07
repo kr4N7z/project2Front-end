@@ -13,6 +13,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UpdateProfileService } from './services/update-profile.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegistrationComponent,
     MessagesComponent,
-    LogoutComponent
+    LogoutComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import { LogoutComponent } from './logout/logout.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UpdateProfileService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

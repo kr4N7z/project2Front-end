@@ -1,0 +1,26 @@
+.home-page{
+    height: 100%;
+    width: 100%;
+}
+.update-profile-component{
+    text-align: center;
+    padding-top: 100px;
+}
+.nav-component{
+    padding: 0px;
+    background: #d4c3a8;
+    -webkit-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.55);
+    -moz-box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.55);
+    box-shadow: -1px 1px 5px 9px rgba(0,0,0,0.55);
+}
+.nav-component > *{
+    width: 100%
+}
+#submit-button{
+    display: block;
+}
+#logout{
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid;
+}

@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
   }
   parseData(data){
     this.appComponent.userId = data.userID;
+    this.appComponent.userEmail = data.email;
+    this.appComponent.userFirstName = data.firstName;
+    this.appComponent.userLastName = data.lastName;
     if(data.userID){
       this.route.navigate(['/home']);
     }
