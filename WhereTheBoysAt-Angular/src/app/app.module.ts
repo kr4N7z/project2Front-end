@@ -13,6 +13,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MessagesComponent } from './messages/messages.component';
 import { LogoutComponent } from './logout/logout.component';
+import { FriendshipsComponent } from './friendships/friendships.component';
+import { FriendshipListComponent } from './friendship-list/friendship-list.component';
+import { FriendRequestsComponent } from './friend-requests/friend-requests.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegistrationComponent,
     MessagesComponent,
-    LogoutComponent
+    LogoutComponent,
+    FriendshipsComponent,
+    FriendshipListComponent,
+    FriendRequestsComponent
   ],
   imports: [
     BrowserModule,
