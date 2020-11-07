@@ -3,6 +3,7 @@ import { FriendsService } from 'src/app/services/friends.service';
 import { Friend } from 'src/app/models/friend';
 import { UserService } from '../services/user.service';
 import { FriendshipsService } from '../services/friendships.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-friendships',
@@ -11,7 +12,7 @@ import { FriendshipsService } from '../services/friendships.service';
 })
 export class FriendshipsComponent implements OnInit {
 
-  constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService, private userService:UserService) { }
+  constructor(private friendsService:FriendsService, private friendshipsService:FriendshipsService, private userService:UserService, private appComponent:AppComponent) { }
 
   emailToAdd;
   private friend:Friend[];
@@ -25,7 +26,7 @@ export class FriendshipsComponent implements OnInit {
         console.log("Something went wrong! Can't fetch friends!")
       }
     ) ;
-    this.friendshipsService.insertFriend(this.friend[0].userId, false);
+    this.friendshipsService.insertFriend(this.friend[0].userId, false, this.appComponent.userId);
   }
 
   ngOnInit(): void {
