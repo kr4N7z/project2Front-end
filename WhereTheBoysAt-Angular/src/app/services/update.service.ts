@@ -17,8 +17,7 @@ export class UpdateService {
     params = params.append('firstName', firstName);
     params = params.append('lastName', lastName);
 
-    // return this.httpClient.post("http://localhost:8080/WhereTheBoysAt/user/update?userId=1&email=email@email.com&firstName=John&lastName="+lastName,{headers:headers, withCredentials:true})
-    return this.httpClient.post("http://localhost:8080/WhereTheBoysAt/user/update",{},{headers:headers, withCredentials:true,params:params})
-    // return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/update",{headers:headers,withCredentials:true,params:params});
+    // return this.httpClient.post("http://localhost:8080/WhereTheBoysAt/user/update",{},{headers:headers, withCredentials:true,params:params})
+    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/update",{headers:headers,withCredentials:true,params:params});
  }
 }
