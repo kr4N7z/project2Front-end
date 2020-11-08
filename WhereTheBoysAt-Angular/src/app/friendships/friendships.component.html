@@ -12,7 +12,7 @@
 </div> 
 <div class="container" id="addFriendsPanel">
     <div class="form-group">
-        <label>Enter the email of the user you want to add    </label>
+        <label id="addUserLabel">Enter the email of the user you want to add    </label>
         <input type="email" name="email" required class="form-control custom" [(ngModel)]="emailToAdd">
     </div>
     <a (click)="addFriend()">

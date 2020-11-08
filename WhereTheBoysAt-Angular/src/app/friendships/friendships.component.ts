@@ -22,12 +22,16 @@ export class FriendshipsComponent implements OnInit {
     this.userService.getUserByEmail(this.emailToAdd).subscribe(
       data => {
         this.friend = data;
-        this.friendshipsService.insertFriend(this.friend.userId, false, this.appComponent.userId);
-        //console.log(data.userId);
-        this.route.navigate(['/friendships']);
+        this.friendshipsService.insertFriend(this.friend.userId, false, this.appComponent.userId).subscribe(        
+           data => {        
+              //this.route.navigate(['/friendships']);      
+              var addUserLabel = document.getElementById("addUserLabel");  
+              addUserLabel.innerHTML = "Enter the email of the user you want to add    Request Sent!" 
+           },
+        );
       },
       () => {
-        console.log("Something went wrong! Can't fetch friends!")
+        console.log("Something went wrong! Can't add friend!")
       }
     ) ;
   }
