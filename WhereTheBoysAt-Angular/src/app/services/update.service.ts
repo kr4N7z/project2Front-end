@@ -18,6 +18,6 @@ export class UpdateService {
     params = params.append('lastName', lastName);
 
     //return this.httpClient.post("http://localhost:8088/WhereTheBoysAt/user/update",{},{headers:headers, withCredentials:true,params:params})
-    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/update",{headers:headers,withCredentials:true,params:params});
+    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/user/update",{},{headers:headers,withCredentials:true,params:params});
  }
 }
