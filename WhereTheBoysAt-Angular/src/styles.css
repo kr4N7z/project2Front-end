@@ -43,7 +43,6 @@ div.tooltip ul li{
     display: block;
     margin: .5em auto;
 }
-<<<<<<< HEAD
 
 #table_div {margin:10px;font-size:1.25em;}
 table {border-collapse:collapse;border:1px solid #7f7f7f;color:darkslategray}
@@ -53,7 +52,6 @@ body{color:darkslategray};
 table {border-collapse:collapse;border:1px solid #7f7f7f;color:darkslategray}
 td {border:1px solid #7f7f7f;width:50px;height:50px;text-align:center;color:black}
 body{color:darkslategray};
-=======
 .card{
     height: 100%;
     border-radius: 15px !important;
@@ -141,4 +139,3 @@ body{color:darkslategray};
     color: rgba(255,255,255,0.5);
     font-size: 10px;
 }
->>>>>>> main
