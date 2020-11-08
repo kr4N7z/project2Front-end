@@ -16,8 +16,8 @@ export class ChatService {
       //let body = JSON.stringify(loginCredentials);
       let params = new HttpParams();
       params = params.append('userId', userId);
-      //return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/messages/getMyMessages", {headers:headers, withCredentials:true, params:params})  as Observable<Message[]>;
-      return this.httpClient.get("http://localhost:8088/WhereTheBoysAt/messages/getMyMessages",{headers:headers, withCredentials:true, params:params})  as Observable<Message[]>;
+      return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/messages/getMyMessages", {headers:headers, withCredentials:true, params:params})  as Observable<Message[]>;
+      //return this.httpClient.get("http://localhost:8088/WhereTheBoysAt/messages/getMyMessages",{headers:headers, withCredentials:true, params:params})  as Observable<Message[]>;
    }
    
 }
