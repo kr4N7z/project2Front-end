@@ -57,45 +57,50 @@ export class MessagesComponent implements OnInit {
           //document.getElementById(this.myFriends[i].userID.toString()).appendChild(element);
         
         }
+      }  
+      this.chatMessages=[];
+      let cardbody = document.createElement('div');
+      cardbody.id ='cardbody';
+      cardbody.className='card-body msg_card_body';
+      for(let j in this.myMessages){
+        if(this.myMessages[j].senderId == clicked.currentTarget.id || this.myMessages[j].receivedId == clicked.currentTarget.id){
+          this.chatMessages.push(this.myMessages[j]);
+        }
       }
+      for(let k in this.chatMessages){
+        let element = document.createElement('div');
+        let element2 = document.createElement('div');
+        let element3 = document.createElement('span');
+          
+        if(this.chatMessages[k].senderId == clicked.currentTarget.id){
+          element.className='d-flex justify-content-start mb-4';
+          element2.className='msg_cotainer';
+          element3.className='msg_time';
+        }else{
+          element.className='d-flex justify-content-end mb-4';
+          element2.className='msg_cotainer_send';
+          element3.className='msg_time_send';
+        }
+        
+        element2.innerText = this.chatMessages[k].message;
+        let date = this.setDate(this.chatMessages[k].sentTime);
+        element3.innerText=date;
+        element2.appendChild(element3);
+        element.appendChild(element2);
+        cardbody.appendChild(element);
+        
+      }
+      container.appendChild(cardbody);
   }else{
+    let conQuery=document.querySelector('#chat-container');
+    if(conQuery.lastElementChild.id == 'cardbody' ){
+      conQuery.removeChild(conQuery.lastChild);
+    }
     for(let i in this.myFriends){
       document.getElementById(this.myFriends[i].userId.toString()).style.display='block';
     }
   }
-  this.chatMessages=[];
-  let cardbody = document.createElement('div');
-  cardbody.id ='cardbody';
-  cardbody.className='card-body msg_card_body';
-  for(let j in this.myMessages){
-    if(this.myMessages[j].senderId == clicked.currentTarget.id || this.myMessages[j].receivedId == clicked.currentTarget.id){
-      this.chatMessages.push(this.myMessages[j]);
-    }
-  }
-  for(let k in this.chatMessages){
-    let element = document.createElement('div');
-    let element2 = document.createElement('div');
-    let element3 = document.createElement('span');
-      
-    if(this.chatMessages[k].senderId == clicked.currentTarget.id){
-      element.className='d-flex justify-content-start mb-4';
-      element2.className='msg_cotainer';
-      element3.className='msg_time';
-    }else{
-      element.className='d-flex justify-content-end mb-4';
-      element2.className='msg_cotainer_send';
-      element3.className='msg_time_send';
-    }
-    
-    element2.innerText = this.chatMessages[k].message;
-    let date = this.setDate(this.chatMessages[k].sentTime);
-    element3.innerText=date;
-    element2.appendChild(element3);
-    element.appendChild(element2);
-    cardbody.appendChild(element);
-    
-  }
-  container.appendChild(cardbody);
+
   this.timesclicked++;
 }
 
