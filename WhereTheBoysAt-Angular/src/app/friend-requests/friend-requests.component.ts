@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FriendshipsService } from 'src/app/services/friendships.service';
 import { Friend } from 'src/app/models/friend';
-import { AppComponent } from 'src/app/app.component'
+import { AppComponent } from 'src/app/app.component';
 import { fromEventPattern } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-friend-requests',
@@ -11,7 +12,7 @@ import { fromEventPattern } from 'rxjs';
 })
 export class FriendRequestsComponent implements OnInit {
 
-  constructor(private friendshipsService:FriendshipsService, private appComponent:AppComponent) { }
+  constructor(private friendshipsService:FriendshipsService, private appComponent:AppComponent, private route:Router) { }
 
   private friends:Friend[] = [];
 
@@ -66,6 +67,7 @@ export class FriendRequestsComponent implements OnInit {
   approveFriend() {
     this.friendshipsService.updateFriend(this.toApprove, true, this.appComponent.userId);
     this.friendshipsService.insertFriend(this.toApprove, true, this.appComponent.userId);
+    this.route.navigate(['/friendships']);
   }
 
   ngOnInit(): void {

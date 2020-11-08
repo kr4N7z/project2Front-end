@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
     password:""
   }
   parseData(data){
-    this.appComponent.userId = data.userID;
-    if(data.userID){
+    this.appComponent.userId = data.userId;
+    if(data.userId){
       this.route.navigate(['/home']);
     }
   }
