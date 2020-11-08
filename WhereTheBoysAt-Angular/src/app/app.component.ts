@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Friend } from 'src/app/models/friend';
 
 
 @Component({
@@ -12,4 +13,5 @@ export class AppComponent {
   userEmail:string;
   userFirstName:string;
   userLastName:string;
+  myFriends:Friend[];
 }

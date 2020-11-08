@@ -23,7 +23,7 @@ export class FriendRequestsComponent implements OnInit {
         this.friends = data;
       },
       () => {
-        console.log("Something went wrong! Can't fetch friends!")
+        console.log("Something went wrong! Can't fetch friend requests!")
       }
     )
   }
