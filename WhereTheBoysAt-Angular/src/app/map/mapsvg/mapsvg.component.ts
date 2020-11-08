@@ -103,7 +103,7 @@ export class MapsvgComponent implements OnInit {
       data => {
         console.log(data);
         this.friends = data;
-        
+        this.appComponent.myFriends=data;
         this.getFriendsByState()
         console.log(this.states)
         this.createMap(url,svg,path,tooltip)

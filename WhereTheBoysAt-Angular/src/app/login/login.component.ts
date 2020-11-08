@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
     password:""
   }
   parseData(data){
-    this.appComponent.userId = data.userID;
+    this.appComponent.userId = data.userId;
     this.appComponent.userEmail = data.email;
     this.appComponent.userFirstName = data.firstName;
     this.appComponent.userLastName = data.lastName;
-    if(data.userID){
+    if(data.userId){
       this.route.navigate(['/home']);
     }
   }
