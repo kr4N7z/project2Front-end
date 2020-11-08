@@ -36,3 +36,10 @@ div.tooltip ul{
 div.tooltip ul li{
     padding: 2px 0px;
 }
+.update-profile-component p {
+    font-size: 20px;
+}
+.update-profile-component input{
+    display: block;
+    margin: .5em auto;
+}

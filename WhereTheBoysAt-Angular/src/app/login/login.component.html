@@ -15,20 +15,22 @@
 								<div class="form-group">
 								<label>Password</label>
 									<input type="password" class="form-control custom" placeholder="Password" [(ngModel)]="credentials.password">
-                                </div>
+								</div>
+								<div id="error" class="error"></div>
                                 <a (click)="postLoginCredentials()" >
                                     <div class="btn btn-primary btn-block">
                                         Login
                                     </div>
                                 </a>
+                                <hr>
                                 <a routerLink= "/register" class="d-flex my-2" >
                                     <div class="btn btn-secondary btn-block">
                                         Create Account
                                     </div>
                                 </a>
-                                <a href= "forgotpass" >
+                                <!-- <a href= "forgotpass" >
                                     Forgot Password
-                                </a>
+                                </a> -->
                                 <!-- <button (click)= "testSession()">
                                     Test Session
                                 </button> -->

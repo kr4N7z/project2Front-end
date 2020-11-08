@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Friend } from 'src/app/models/friend';
 
 
 @Component({
@@ -9,4 +10,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angularMapTest';
   userId:number;
+  userEmail:string;
+  userFirstName:string;
+  userLastName:string;
+  myFriends:Friend[];
 }

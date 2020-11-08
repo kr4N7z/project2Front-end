@@ -1,29 +1,18 @@
 export class Message{
-    public userId:number;
-    public userType:string;
-    public email:string;
-    public password:string;
-    public firstName:string;
-    public lastName:string;
-    public lastLatitude:number;
-    public lastLongitude:number;
-    public lastState: string;
-    public createdOn;
-    public lastLogin;
-
+    public messageId:number;
+    public senderId:number;
+    public receivedId:number;
+    public sentTime:Date;
+    public seen:boolean;
 
     
 
-	constructor($userId: number, $userType: string, $email: string, $password: string, $firstName: string, $lastName: string, $lastLatitude: number, $lastLongitude: number, $lastState: string) {
-		this.userId = $userId;
-		this.userType = $userType;
-		this.email = $email;
-		this.password = $password;
-		this.firstName = $firstName;
-		this.lastName = $lastName;
-		this.lastLatitude = $lastLatitude;
-		this.lastLongitude = $lastLongitude;
-		this.lastState = $lastState;
+	constructor($messageId: number, $senderId:number,$recievedId:number, $sentTime:Date, $seen:boolean ) {
+		this.messageId = $messageId;
+        this.senderId = $senderId;
+        this.receivedId = $recievedId;
+        this.sentTime = $sentTime;
+        this.seen = $seen;
 	}
 
 	
