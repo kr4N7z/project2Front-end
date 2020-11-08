@@ -8,6 +8,11 @@
 .login-box{
     height:360;
     border:4px black solid;
+    border-radius: 30px;
+    background-color: #d4c3a8;
+    text-align: center;
+    width: 500px;
+    padding:30px;
 }
 .login-page{
     height:100%;
