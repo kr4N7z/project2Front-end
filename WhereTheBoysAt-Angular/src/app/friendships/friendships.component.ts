@@ -21,6 +21,7 @@ export class FriendshipsComponent implements OnInit {
   addFriend() {
     this.userService.getUserByEmail(this.emailToAdd).subscribe(
       data => {
+        console.log("userService worked")
         this.friend = data;
         this.friendshipsService.insertFriend(this.friend.userId, false, this.appComponent.userId).subscribe(        
            data => {        

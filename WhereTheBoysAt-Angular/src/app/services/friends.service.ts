@@ -13,7 +13,6 @@ export class FriendsService {
 
   getAllFriends(userId):Observable<Friend[]>{
     let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
-    console.log(userId)
     let params = new HttpParams();
     params = params.append('userId', userId);
     //return this.httpClient.get("http://localhost:8088/WhereTheBoysAt/user/myfriends",{headers:headers, withCredentials:true,params:params}) as Observable<Friend[]>
