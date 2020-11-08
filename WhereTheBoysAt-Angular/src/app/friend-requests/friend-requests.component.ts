@@ -4,7 +4,6 @@ import { Friend } from 'src/app/models/friend';
 import { AppComponent } from 'src/app/app.component';
 import { fromEventPattern } from 'rxjs';
 import { Router } from '@angular/router';
-import { FriendshipListComponent } from 'src/app/friendship-list/friendship-list.component'
 
 @Component({
   selector: 'app-friend-requests',
