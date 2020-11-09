@@ -147,3 +147,15 @@ body{color:darkslategray};
     color: white !important;
     cursor: pointer;
 }
+#table_div{
+    width: 500px;
+}
+td{
+    width: fit-content;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.home-page{
+    min-height: 100%;
+    height: inherit !important;
+}
