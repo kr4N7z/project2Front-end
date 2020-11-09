@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(private logoutService:LogoutService, private appComponent:AppComponent, private route:Router) { }
 
   ngOnInit(): void {
-    console.log(this.appComponent.userId)
   }
 
 }

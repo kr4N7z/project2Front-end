@@ -2,6 +2,10 @@
     height: 100%;
     width: 100%;
 }
+.update-profile-component{
+    text-align: center;
+    padding-top: 100px;
+}
 .nav-component{
     padding: 0px;
     background: #d4c3a8;
@@ -11,6 +15,9 @@
 }
 .nav-component > *{
     width: 100%
+}
+#submit-button{
+    display: block;
 }
 #logout{
     text-align: center;
