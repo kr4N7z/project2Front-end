@@ -17,8 +17,8 @@ export class FriendshipsService {
     params = params.append('userId', userId);
     params = params.append('receiverId', receiverId);
     params = params.append('approved', approved)
+    //this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/insert",{headers:headers,withCredentials:true,params:params});
     this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/insert",{headers:headers,withCredentials:true,params:params});
-    //this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/insert", receiver_id, approved);
   }
 
   updateFriend(receiverId, approved, userId) {
@@ -27,7 +27,7 @@ export class FriendshipsService {
     params = params.append('userId', userId);
     params = params.append('receiverId', receiverId);
     params = params.append('approved', approved)
-    this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/update",{headers:headers,withCredentials:true,params:params});
+    //this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/update",{headers:headers,withCredentials:true,params:params});
     //this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/update", receiver_id, approved);
   }
 
@@ -35,7 +35,7 @@ export class FriendshipsService {
     let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
     let params = new HttpParams();
     params = params.append('userId', userId);
-    return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/viewAllFriendships",{headers:headers,withCredentials:true,params:params}) as Observable<Friendship[]>;
+    //return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/viewAllFriendships",{headers:headers,withCredentials:true,params:params}) as Observable<Friendship[]>;
     //return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/viewAllFriendships") as Observable<Friendship[]>;
   }
   

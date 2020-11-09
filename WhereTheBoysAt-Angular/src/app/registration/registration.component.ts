@@ -24,8 +24,23 @@ export class RegistrationComponent implements OnInit {
     if(data.success){
       this.route.navigate(['/']);
     }else{
-      console.log("did not successfully logout!")
-      this.route.navigate(['/home']);
+      console.log("Failed to register!")
+      //this.route.navigate(['/register']);
+      if(data.errorMessage==="Invalid email format"){
+        document.getElementById("email").innerHTML=data.errorMessage;
+      }
+      else if(data.errorMessage==="First name must not be blank"){
+        document.getElementById("first").innerHTML=data.errorMessage;
+      }
+      else if(data.errorMessage==="Last name must not be blank"){
+        document.getElementById("last").innerHTML=data.errorMessage;
+      }
+      else if(data.errorMessage==="Password is too short"){
+        document.getElementById("password").innerHTML=data.errorMessage;
+      }
+      else if(data.errorMessage==="Passwords do not match"){
+        document.getElementById("password").innerHTML=data.errorMessage;
+      }
     }
   }
   register(){
@@ -35,9 +50,9 @@ export class RegistrationComponent implements OnInit {
       (data)=>{
         this.parseData(data);
       },
-      ()=>{
-        document.getElementById("error").innerHTML = "Email or Password is invalid";
+      (err)=>{
         console.log("something went wrong");
+        console.log(err);
       }
     )
   }
