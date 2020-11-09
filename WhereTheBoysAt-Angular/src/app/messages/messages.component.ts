@@ -138,6 +138,21 @@ sendMessage(msg){
   let chatMessage = new Message(0,this.appComponent.userId,this.reciever,text.value,new Date(),true);
   this.sendChatService.sendchat(chatMessage).subscribe();
   (<HTMLInputElement>document.getElementById('chatarea')).value="";
+  let currentContainer = document.getElementById('cardbody');
+  let element = document.createElement('div');
+  let element2 = document.createElement('div');
+  let element3 = document.createElement('span');
+  element.className='d-flex justify-content-end mb-4';
+  element2.className='msg_cotainer_send';
+  element2.innerText=text.value;
+  element3.className='msg_time_send';
+  let date = this.setDate(new Date());
+  element3.innerText=date;
+  element2.appendChild(element3);
+  element.appendChild(element2);
+  currentContainer.appendChild(element);
+
+
 }
 
 setDate(date){
