@@ -10,17 +10,17 @@
 								<div class="form-group myr-top">
 								    <label>Email</label>
 									<input type="email" class="form-control custom" placeholder="Email" [(ngModel)]="registration.email" required>
-                                    <div id="email"> </div>
+                                    <div id="email" class="error"> </div>
                                 </div>
                                 <div class="form-group myr-top">
                                     <label>First Name</label>
                                     <input type="text" class="form-control custom" placeholder="First" [(ngModel)]="registration.firstName" required>
-                                    <div id="first"> </div>
+                                    <div id="first" class="error"> </div>
                                 </div>
                                 <div class="form-group myr-top">
                                     <label>Last Name</label>
                                         <input type="text" class="form-control custom" placeholder="Last" [(ngModel)]="registration.lastName" required>
-                                        <div id="last"> </div>
+                                        <div id="last" class="error"> </div>
                                 </div>
 								<div class="form-group myr-top">
 								<label>Password</label>
@@ -28,7 +28,7 @@
                                 </div>
                                 <label>Confirm Password</label>
                                     <input type="password" class="form-control custom" placeholder="Confirm Password" [(ngModel)]="registration.cpassword" required>
-                                    <div id="password"> </div>
+                                    <div id="password" class="error"> </div>
                                 </div>
                                 <a (click)= "register()" class="d-flex my-2" >
                                     <div class="btn btn-primary btn-block">

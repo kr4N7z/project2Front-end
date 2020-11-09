@@ -26,6 +26,10 @@ export class RegistrationComponent implements OnInit {
     }else{
       console.log("Failed to register!")
       //this.route.navigate(['/register']);
+      document.getElementById("password").innerHTML="";
+      document.getElementById("last").innerHTML="";
+      document.getElementById("first").innerHTML="";
+      document.getElementById("email").innerHTML="";
       if(data.errorMessage==="Invalid email format"){
         document.getElementById("email").innerHTML=data.errorMessage;
       }
