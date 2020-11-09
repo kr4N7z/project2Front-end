@@ -38,7 +38,7 @@ export class FriendshipsService {
     return this.httpClient.get("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/viewAllFriendships",{headers:headers,withCredentials:true,params:params}) as Observable<Friendship[]>;
     //return this.httpClient.get("http://localhost:8088/WhereTheBoysAt/friendship/viewAllFriendships",{headers:headers,withCredentials:true,params:params}) as Observable<Friendship[]>;
   }
-
+  
   viewMyFriendships(userId) {
     let headers:HttpHeaders = new HttpHeaders().set('Content-Type','application/json');
     let params = new HttpParams();
@@ -62,7 +62,7 @@ export class FriendshipsService {
     let params = new HttpParams();
     params = params.append('userId', userId);
     params = params.append('receiverId', receiverId);
-    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/removeFriendships", {}, {headers:headers,withCredentials:true,params:params});
+    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/removeFriendship", {}, {headers:headers,withCredentials:true,params:params});
     //return this.httpClient.post("http://localhost:8088/WhereTheBoysAt/friendship/removeFriendship", {}, {headers:headers,withCredentials:true,params:params});
   }
 
