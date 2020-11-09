@@ -57,6 +57,9 @@ body{color:darkslategray};
     height: 100%;
     border-radius: 15px !important;
     background-color: rgba(0,0,0,0.4) !important;
+    
+}
+.cardbody{
     overflow-y: auto;
 }
 *, ::after, ::before {
