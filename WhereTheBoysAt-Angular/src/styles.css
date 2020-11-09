@@ -155,3 +155,7 @@ td{
     padding-right: 15px;
     padding-left: 15px;
 }
+.home-page{
+    min-height: 100%;
+    height: inherit !important;
+}
