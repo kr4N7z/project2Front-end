@@ -62,7 +62,7 @@ export class FriendshipsService {
     let params = new HttpParams();
     params = params.append('userId', userId);
     params = params.append('receiverId', receiverId);
-    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/removelFriendships", {}, {headers:headers,withCredentials:true,params:params});
+    return this.httpClient.post("http://ec2-54-237-35-242.compute-1.amazonaws.com:8088/WhereTheBoysAt/friendship/removeFriendship", {}, {headers:headers,withCredentials:true,params:params});
     //return this.httpClient.post("http://localhost:8088/WhereTheBoysAt/friendship/removeFriendship", {}, {headers:headers,withCredentials:true,params:params});
   }
 
