@@ -137,7 +137,7 @@ sendMessage(msg){
   let text = (<HTMLInputElement>document.getElementById('chatarea'));
   let chatMessage = new Message(0,this.appComponent.userId,this.reciever,text.value,new Date(),true);
   this.sendChatService.sendchat(chatMessage).subscribe();
-  (<HTMLInputElement>document.getElementById('chatarea')).value="";
+ 
   let currentContainer = document.getElementById('cardbody');
   let element = document.createElement('div');
   let element2 = document.createElement('div');
@@ -151,7 +151,7 @@ sendMessage(msg){
   element2.appendChild(element3);
   element.appendChild(element2);
   currentContainer.appendChild(element);
-
+  (<HTMLInputElement>document.getElementById('chatarea')).value="";
 
 }
 
