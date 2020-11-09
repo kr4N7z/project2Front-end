@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component'
 import { ChatService } from 'src/app/services/chat.service';
+import { SendchatService} from 'src/app/services/sendchat.service';
+
 import { LogoutService} from 'src/app/services/logout.service';
 import { Router } from '@angular/router';
 import { Friend } from 'src/app/models/friend';
 import { Message } from 'src/app/models/message';
+
 
 
 @Component({
@@ -14,7 +17,7 @@ import { Message } from 'src/app/models/message';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(private logoutService:LogoutService,private appComponent:AppComponent,private chatService:ChatService) { }
+  constructor(private logoutService:LogoutService,private appComponent:AppComponent,private chatService:ChatService,private sendChatService:SendchatService) { }
   myFriends= this.appComponent.myFriends;
   userId = this.appComponent.userId;
   private reciever:number;
@@ -91,9 +94,35 @@ export class MessagesComponent implements OnInit {
         
       }
       container.appendChild(cardbody);
+      
+      let cardFooter =document.createElement('div');
+      cardFooter.className="card-footer";
+      cardFooter.id= "cardfooter";
+      let input = document.createElement('div');
+      input.className="input-group"
+      
+      let chatarea = document.createElement('textarea');
+      chatarea.className="form-control type_msg";
+      chatarea.id="chatarea";
+      chatarea.setAttribute('placeholder','Type your message here...');
+      
+      let divbut = document.createElement('div');
+      divbut.className='input-group-append';
+      divbut.addEventListener("click",e => this.sendMessage(e))
+      let spanbut = document.createElement('span');
+      spanbut.className="input-group-text send_btn";
+
+      let ibutton = document.createElement('i');
+      ibutton.className='fas fa-location-arrow';
+      spanbut.appendChild(ibutton);
+      divbut.appendChild(spanbut);
+      input.appendChild(chatarea);
+      input.appendChild(divbut);
+      cardFooter.appendChild(input);
+      container.appendChild(cardFooter);
   }else{
     let conQuery=document.querySelector('#chat-container');
-    if(conQuery.lastElementChild.id == 'cardbody' ){
+    while(conQuery.lastElementChild.id == 'cardbody' || conQuery.lastElementChild.id == 'cardfooter' ){
       conQuery.removeChild(conQuery.lastChild);
     }
     for(let i in this.myFriends){
@@ -104,9 +133,12 @@ export class MessagesComponent implements OnInit {
   this.timesclicked++;
 }
 
-
-
-
+sendMessage(msg){
+  let text = (<HTMLInputElement>document.getElementById('chatarea'));
+  let chatMessage = new Message(0,this.appComponent.userId,this.reciever,text.value,new Date(),true);
+  this.sendChatService.sendchat(chatMessage).subscribe();
+  (<HTMLInputElement>document.getElementById('chatarea')).value="";
+}
 
 setDate(date){
   let day = new Date(date)
