@@ -1,4 +1,4 @@
-# Where The Boys At?
+# Where The Boys At? Front End Repository
 
 Do you like to explore on your vacations? Take trips on the weekends across state lines? What better way to explore than with your boys, and now with Where The Boys At, you never have to explore without your boys again! Use this application to decide on your next location to explore based on where you know people, or even to let others know that you want to explore your own state if they come to town!
 figure out where your friends are located in the usa.
